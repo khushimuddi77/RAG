@@ -180,7 +180,15 @@ http://localhost:5173
 | POST | `/query` | Ask Therech AI |
 
 ---
+## Screenshots
 
+### AI Chat
+
+![Chat](assets/snip1.png)
+
+### Knowledge Base
+
+![Knowledge Base](assets/snip2.png)
 ## Future Improvements
 
 - Streaming responses
