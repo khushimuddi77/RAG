@@ -11,7 +11,7 @@ embeddings = OllamaEmbeddings(
 )
 
 vector_store = Chroma(
-    collection_name="aws_docs",
+    collection_name="therech_docs",
     persist_directory="./chroma_db",
     embedding_function=embeddings
 )
