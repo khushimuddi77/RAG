@@ -73,6 +73,109 @@ llm = OllamaLLM(
 # ---------------------------------------
 # Query Endpoint
 # ---------------------------------------
+
+@app.get("/documents")
+def get_documents():
+
+    return [
+        {
+            "id": 1,
+            "title": "Employee Handbook",
+            "department": "Human Resources",
+            "updated": "Jan 2026",
+            "content": """
+Welcome to Therech.
+
+The Employee Handbook explains company values,
+working hours, code of conduct, dress code,
+performance reviews and workplace expectations.
+"""
+        },
+        {
+            "id": 2,
+            "title": "Leave Policy",
+            "department": "HR Department",
+            "updated": "Jan 2026",
+            "content": """
+Employees receive:
+
+• 24 Annual Leaves
+
+• 12 Sick Leaves
+
+• 10 Public Holidays
+
+Leaves can be requested through Therech HR Portal.
+"""
+        },
+        {
+            "id": 3,
+            "title": "Remote Work",
+            "department": "Engineering",
+            "updated": "Jan 2026",
+            "content": """
+Employees may work remotely
+up to three days per week.
+
+VPN access is mandatory.
+"""
+        },
+        {
+            "id": 4,
+            "title": "Security Policy",
+            "department": "IT Security",
+            "updated": "Jan 2026",
+            "content": """
+Passwords must contain at least
+12 characters.
+
+MFA is mandatory.
+"""
+        },
+        {
+            "id": 5,
+            "title": "Travel Policy",
+            "department": "Finance",
+            "updated": "Jan 2026",
+            "content": """
+Business travel requires
+manager approval.
+
+Expenses are reimbursed within
+10 business days.
+"""
+        },
+        {
+            "id": 6,
+            "title": "Benefits Guide",
+            "department": "Human Resources",
+            "updated": "Jan 2026",
+            "content": """
+Health Insurance
+
+Dental Coverage
+
+Life Insurance
+
+Learning Budget
+"""
+        },
+        {
+            "id": 7,
+            "title": "Engineering Guidelines",
+            "department": "Engineering",
+            "updated": "Jan 2026",
+            "content": """
+Use Git Flow.
+
+Every PR requires
+at least one approval.
+
+Write unit tests.
+"""
+        }
+    ]
+
 @app.post("/query")
 def query(request: QueryRequest):
 

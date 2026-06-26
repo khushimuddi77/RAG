@@ -3,7 +3,7 @@ import Message from "./Message";
 import Sources from "./Sources";
 import SuggestedQuestions from "./SuggestedQuestions";
 
-export default function ChatWindow() {
+export default function ChatWindow({ className = "" }) {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -70,8 +70,7 @@ export default function ChatWindow() {
   };
 
   return (
-    <div className="flex-1 flex flex-col">
-
+<div className={`flex-1 flex flex-col ${className}`}>
       {/* Chat Area */}
       <div className="flex-1 overflow-auto p-8">
 

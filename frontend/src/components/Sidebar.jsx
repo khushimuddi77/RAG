@@ -1,38 +1,69 @@
-const docs = [
-  "Employee Handbook",
-  "Leave Policy",
-  "Remote Work Policy",
-  "Security Policy",
-  "Travel Policy",
-  "Benefits Guide",
-  "Engineering Guidelines",
-];
+import { useEffect, useState } from "react";
 
-export default function Sidebar() {
-  return (
-    <div className="w-72 border-r border-gray-200 bg-white p-6">
-      <h1 className="text-2xl font-bold">Therech AI</h1>
+export default function Sidebar({ onDocumentClick }) {
 
-      <p className="text-sm text-gray-500 mt-1">
-        Enterprise Knowledge Assistant
-      </p>
+    const [documents, setDocuments] = useState([]);
 
-      <div className="mt-10">
-        <h2 className="text-xs font-semibold uppercase text-gray-400 mb-4">
-          Knowledge Base
-        </h2>
+    useEffect(() => {
 
-        <div className="space-y-3">
-          {docs.map((doc) => (
-            <div
-              key={doc}
-              className="text-sm text-gray-700 bg-gray-50 rounded-lg p-3"
-            >
-              {doc}
+        fetch("http://localhost:8000/documents")
+            .then(res => res.json())
+            .then(data => {
+
+                setDocuments(data);
+
+            });
+
+    }, []);
+
+    return (
+
+        <div className="w-80 border-r h-screen flex flex-col">
+
+            <div className="p-5 border-b">
+
+                <h2 className="font-bold text-xl">
+                    Knowledge Base
+                </h2>
+
             </div>
-          ))}
+
+            <div className="overflow-auto">
+
+                {documents.map(doc => (
+
+                    <div
+                        key={doc.id}
+                        onClick={() => onDocumentClick(doc)}
+                        className="cursor-pointer border-b p-4 hover:bg-gray-100"
+                    >
+
+                        <h3 className="font-semibold">
+
+                            {doc.title}
+
+                        </h3>
+
+                        <p className="text-sm text-gray-500">
+
+                            {doc.department}
+
+                        </p>
+
+                        <p className="text-xs text-gray-400">
+
+                            Updated: {doc.updated}
+
+                        </p>
+
+                    </div>
+
+                ))}
+
+            </div>
+
         </div>
-      </div>
-    </div>
-  );
+
+    );
+
 }
