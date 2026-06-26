@@ -184,11 +184,11 @@ http://localhost:5173
 
 ### AI Chat
 
-![Chat](assets/snip1.png)
+![Chat](frontend/src/assets/snip1.png)
 
 ### Knowledge Base
 
-![Knowledge Base](assets/snip2.png)
+![Knowledge Base](frontend/src/assets/snip2.png)
 ## Future Improvements
 
 - Streaming responses
